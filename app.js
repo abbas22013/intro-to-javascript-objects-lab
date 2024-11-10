@@ -17,11 +17,54 @@ const game = {
       { name: "pokeball", quantity: 8 },
       { name: "rare candy", quantity: 99 },
     ],
-    difficulty: "Med"
+    difficulty: "Med",
+    completeGymsBelowEight: function() {
+    
+      this.gyms.forEach(gym => {
+        if (gym.difficulty < 8) {
+          gym.completed = true; 
+        }
+      });
+    },
+    catchPokemon: function(pokemonObj) {
+      this.party.push(pokemonObj); 
+    },
+
+
+    gymStatus: function() {
+      const gymTally = {
+        completed: 0,
+        incomplete: 0
+      };
+  
+  
+      this.gyms.forEach(gym => {
+        if (gym.completed) {
+          gymTally.completed++;
+        } else {
+          gymTally.incomplete++;
+        }
+      });
+  
+      console.log(gymTally);
+    }
+
+  
+
     
    
     
   }
+  game.gymStatus();
+  game.completeGymsBelowEight();
+
+console.log(game.gyms);
+const pikachu = { name: "Pikachu", type: "Electric", level: 5 };
+
+game.catchPokemon(pikachu);
+
+console.log(game.party);
+
  
   //Exercise 1:
 
@@ -412,6 +455,49 @@ game.partyCount = function() {
 };
 
 console.log(`You have ${game.partyCount()} Pokémon in your party.`);
+
+
+
+
+/*
+Exercise 15
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 15 here:
+*/
+/*const game = {
+  party: [],
+  gyms: [
+    { location: "Pewter City", completed: false, difficulty: 1 },
+    { location: "Cerulean City", completed: false, difficulty: 2 },
+    { location: "Vermilion City", completed: true, difficulty: 3 },
+    { location: "Celadon City", completed: true, difficulty: 4 },
+    { location: "Fuchsia City", completed: false, difficulty: 5 },
+    { location: "Saffron City", completed: true, difficulty: 6 },
+    { location: "Cinnabar Island", completed: false, difficulty: 7 },
+    { location: "Viridian City", completed: false, difficulty: 8 },
+  ],
+  items: [
+    { name: "potion", quantity: 4 },
+    { name: "pokeball", quantity: 8 },
+    { name: "rare candy", quantity: 99 },
+  ],
+  difficulty: "Med",
+
+  completeGymsBelowEight: function() {
+    
+    this.gyms.forEach(gym => {
+      if (gym.difficulty < 8) {
+        gym.completed = true; 
+      }
+    });
+  }
+};
+
+game.completeGymsBelowEight();
+
+console.log(game.gyms);*/
 
 
 /*
