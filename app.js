@@ -141,7 +141,45 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 
 Solve Exercise 7 here:
 */
+function evolveStarterPokemon() {
+  
+  const starterIndex = game.party.findIndex(pokemon => 
+    pokemon.id === 1 || pokemon.id === 4 || pokemon.id === 7 || pokemon.id === 25
+  );
 
+  if (starterIndex !== -1) {
+    const starter = game.party[starterIndex];
+    let evolvedForm;
+    
+  
+    if (starter.id === 1) { 
+      evolvedForm = { id: 2, name: 'Ivysaur', level: starter.level };
+    } else if (starter.id === 4) { 
+      evolvedForm = { id: 5, name: 'Charmeleon', level: starter.level };
+    } else if (starter.id === 7) { 
+      evolvedForm = { id: 8, name: 'Wartortle', level: starter.level };
+    } else if (starter.id === 25) { 
+      evolvedForm = { id: 26, name: 'Raichu', level: starter.level };
+    }
+
+   
+    game.party.splice(starterIndex, 1, evolvedForm);
+    console.log(`${starter.name} has evolved into ${evolvedForm.name}!`);
+  } else {
+    console.log("No starter Pokémon in the party.");
+  }
+}
+
+
+game.party = [
+  { id: 1, name: 'Bulbasaur', level: 5 },  
+  { id: 4, name: 'Charmander', level: 10 },
+  { id: 7, name: 'Squirtle', level: 12 },
+];
+
+evolveStarterPokemon();  
+
+console.log(game.party);  
 
 
 
@@ -220,6 +258,40 @@ game.gyms.forEach(gym => {
 });
 
 console.log(game.gyms);
+
+
+
+
+/*
+Exercise 14
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 14 here:
+*/
+
+game.partyCount = function() {
+  
+  return game.party.length;
+};
+
+console.log(`You have ${game.partyCount()} Pokémon in your party.`);
+
+
+/*
+Exercise 16
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 16 here:
+*/
+
+
+console.log(game);
 
 
 
