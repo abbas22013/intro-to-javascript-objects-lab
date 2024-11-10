@@ -18,9 +18,10 @@ const game = {
       { name: "rare candy", quantity: 99 },
     ],
     difficulty: "Med"
+   
     
   }
-
+ 
   //Exercise 1:
 
   //console.dir(pokemon, { maxArrayLength: null })
@@ -140,6 +141,93 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 
 Solve Exercise 7 here:
 */
+
+
+
+
+/*
+Exercise 8
+1. Print the name of each Pokémon in your party.
+2. Consider using a loop or an array method to access each Pokémon's name.
+
+Solve Exercise 8 here:
+*/
+
+game.party = [
+  { id: 2, name: "Ivysaur" },
+  { id: 5, name: "Charmeleon" },
+  { id: 10, name: "Caterpie" }
+];
+
+game.party.forEach(pokemon => {
+  console.log(pokemon.name);
+});
+
+
+
+
+/*
+Exercise 10
+Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
+  - Accept an object as a parameter called `pokemonObj`
+  - Add the `pokemonObj` to the `game.party` array.
+  - not return anything
+
+After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+
+Solve Exercise 10 here:
+  catchPokemon(pokemonObj) {
+    this.party.push(pokemonObj);
+  }
+};
+game.catchPokemon(pokemon[0]);
+console.log(game.party);
+*/
+
+
+
+
+/*
+Exercise 11
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 11 here:
+*/
+
+    
+
+
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+
+
+game.gyms.forEach(gym => {
+  if (gym.difficulty < 6) {
+    gym.completed = true;
+  }
+});
+
+console.log(game.gyms);
+
+
+
+
+
+
+
+
 
 
 
